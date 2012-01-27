@@ -1,0 +1,330 @@
+.whiteOverlay { background:#000; }
+.jqDrag {}
+
+/* jqmModal dialog CSS courtesy of;
+  Brice Burgess <bhb@iceburg.net> */
+
+.jqmDialog {
+  	display: none;
+    position: fixed;
+    top: 17%;
+    left: 50%;
+    margin-left: -400px;
+  	width: 643px;
+  	height:650px;
+	background: #eeeeee;
+ 	overflow: hidden;
+  	font-family:verdana,tahoma,helvetica;
+  	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:7px;
+}
+
+/* Fixed posistioning emulation for IE6
+     Star selector used to hide definition from browsers other than IE6
+     For valid CSS, use a conditional include instead */
+* html div.jqmDialog {
+     position: absolute;
+     top: expression((document.documentElement.scrollTop || document.body.scrollTop) + Math.round(17 * (document.documentElement.offsetHeight || document.body.clientHeight) / 100) + 'px');
+}
+
+
+/* [[[ Title / Top Classes ]]] */
+div.jqmdTC { 
+background: url("../images/newheader.png") repeat-x; 
+width:645px;
+height:50px;
+font-family:"sans serif",verdana,tahoma,helvetica;
+font-weight: bold;
+-moz-border-top:5px;
+-webkit-border-top-radius:5px;
+border-top-left-radius:7px;
+border-top-right-radius:7px;
+* zoom: 1;
+}
+
+/* [[[ Button classes ]]] */
+div.jqmdX {
+  position: absolute;
+  right: 12px;
+  top: 15px;
+  height: 21px;
+  width: 21px;
+  background: url("../images/closebtn.png") no-repeat;
+ cursor: pointer;
+
+}
+div.piclogo{
+	position:absolute;
+	left:21px;
+	top:15px;
+	padding-left:30px;
+	width:200px;
+	height:30px;
+	background: url("../images/imageslogo.png") no-repeat;
+	font-size:17px;
+	font-weight:bold;
+	
+}
+#jqmdIMG{
+	height:166px;
+	width:645px;
+	float: left;
+	border-bottom: 1px solid #c8c8c8;
+}
+#jqmFRM{
+	height:220px;
+	width:645px;
+	float: left;
+	border-bottom: 1px solid #c8c8c8;
+	color:#202020;
+	font-weight:bold;
+	font-size:19px;
+}
+#jt_holder{
+	
+	margin-left:20px;
+	margin-top:20px;
+	
+}
+#jf_holder{
+	
+	margin-left:20px;
+	margin-top:20px;
+	line-height: 39px;
+
+}
+#jf_holder input{
+	
+	background-color: #f4f4f4;
+	width:512px;
+	padding-left:10px;
+	height:33px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:7px;
+	border: none;
+	text-align: left;
+	border: 1px solid #aeaeae;
+	font-size:14px;
+	color:#555555;
+
+}
+#jt_holder input{
+		background-color: #f4f4f4;
+	width:512px;
+	padding-left:10px;
+	height:33px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:7px;
+	border: none;
+	text-align: left;
+	border: 1px solid #aeaeae;
+	font-size:14px;
+	color:#555555;
+
+	
+}
+#new_image_name_holder{
+	font-size:17px;
+	color:#666666;
+
+}
+.trans{
+	color: #aeaeae;
+	font-size:17px;
+	font-weight:normal;
+}
+.num{
+	border-style: none;
+	background: transparent;
+	width:512px;
+	height:33px;
+	padding-left:10px;
+	outline:0px;
+	color:#555555;
+	right:20px;
+	position: absolute;
+}
+.newtagList{
+	display: inline-block;
+	position:relative;
+	padding: 15px 25px 2px 0px;
+	color: #666666;
+	font-size:17px;
+	font-weight:normal;
+}
+
+#new_add_tags_holder{
+	float: left;
+}
+
+#new_add_tags_holder a{
+	position: absolute;
+	right:10px;
+	bottom:0px;
+	margin:0;
+	text-decoration: none;
+
+}
+.cust{
+	border-style: none;
+	background: transparent;
+	width:512px;
+	height:35px;
+	padding-left:10px;
+	outline:0px;
+	color:#555555;
+	right:20px;
+	position: absolute;
+}
+.custtag{
+	border-style: none;
+	background: transparent;
+	width:512px;
+	height:35px;
+	padding-left:10px;
+	outline:0px;
+	color:#555555;
+	left:20px;
+	position: absolute;
+}
+
+#jqmTAGS{
+	height:140px;
+	width:645px;
+	float: left;
+	border-bottom: 1px solid #c8c8c8;
+	color:#202020;
+	font-weight:bold;
+}
+#jqmSBM{
+	height:67px;
+	width:645px;
+	float: left;
+
+}
+#jsubmit_holder{
+	background: url("../images/bgbtnsave.png")repeat-x;
+	right:20px;
+	bottom: 16px;
+	position: absolute;
+	height:36px;
+	padding-left:15px;
+	padding-right:15px;
+	line-height:36px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	font-size:17px;
+	text-shadow: 0 0 0.1em #fff;
+}
+#add_holder {
+	background: url('../images/addbtnbg.png') repeat-x;
+	height:34px;
+	padding-left: 10px;
+	padding-right: 10px;
+	line-height: 34px;
+	font-size:17px;
+	text-align:center;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:5px;
+	text-shadow: 0 0 0.1em #fff;	
+	color: #fff;
+	position: absolute;
+	right: 45px;
+	margin-top: -33px;
+	text-decoration: none;
+	font-weight:normal;
+}
+#jsubmit_holder a{
+	text-shadow: 0 0 0.1em #fff;
+	font-size:17px;
+	color: #fff;
+	text-decoration: none;
+}
+#jsubmit_holder a:visited {
+	color: #fff;
+	text-decoration: none;
+}
+#jsubmit_holder a:hover {
+	text-shadow: 0 0 0.1em #fff;
+	color: #fff;
+}
+#jimg_holder{
+	width:230px;
+	float:left;
+	
+}
+#jimg_holder img{
+	max-height:115px;
+	background-color: white;
+	padding: 5px;
+	margin-left:20px;
+	margin-top:20px;
+}
+#jcont_holder{
+	font-size:19px;
+	margin-top:20px;
+	color:#000;
+	padding-bottom:10px;
+	
+}
+
+#new_add_holder {
+	background: url('../images/addbtnbg.png') repeat-x;
+	height:34px;
+	padding-left: 10px;
+	padding-right: 10px;
+	line-height: 34px;
+	font-size:17px;
+	text-align:center;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:5px;
+	text-shadow: 0 0 0.1em #fff;	
+	color: #fff;
+	position: absolute;
+	right: 45px;
+	margin-top: -33px;
+	text-decoration: none;
+	font-weight:normal;
+}
+#add_tags_holder{
+	float: left;
+}
+.tagList{
+	display: inline-block;
+	position:relative;
+	padding: 15px 25px 2px 0px;
+	color: #666666;
+	font-size:17px;
+	font-weight:normal;
+}
+
+#add_tags_holder a{
+	position: absolute;
+	right:10px;
+	bottom:0px;
+	margin:0;
+	text-decoration: none;
+
+}
+#image_name_holder{
+	font-size:17px;
+	color:#666666;
+
+}
+
+input.jqmdXFocus {background-position: bottom left; outline: none;}
+
+div.jqmdBC button, div.jqmdBC input[type="submit"] {
+  margin: 8px 10px 4px 10px;
+  color: #777;
+  
+  cursor: pointer;
+}
+
+div.jqmDialog input:focus, div.jqmDialog input.iefocus { background-color: #eaffc3; }

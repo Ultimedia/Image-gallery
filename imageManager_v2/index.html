@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Image Gallery</title>
+	<link rel="stylesheet" href="css/reset.css" type="text/css"  />
+    <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.8.13.custom.css" type="text/css" />
+	<link rel="stylesheet" href="js/stars/jquery.ui.stars.css" type="text/css" />
+	<link rel="stylesheet" href="css/jqModal.css" type="text/css" />
+	<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/jquery.gritter.css" type="text/css" media="screen">
+
+	<script type="text/javascript" src="js/jquery-1.5.2.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.8.13.custom.min.js"></script>
+	<script type="text/javascript" src="js/stars/jquery.ui.stars.min.js"></script>
+	<script type="text/javascript" src="js/jqModal.js"></script>
+	<script type="text/javascript" src="js/jquery.gritter.min.js"></script>
+	<script type="text/javascript" src="js/settings.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+
+	<meta name="author" content="CARET" />
+</head>
+<body>
+	<div id="imageModal">
+		<div id="modalHeader">
+			<span class="barInfo imageCount">Add New Image</span>
+			<span id="closeModal" class="closeButton"></span>
+		</div>
+		<div class="modalContent">
+			<form>
+				<ul>
+					<li>
+						<div id="imagePreview">
+							<img src="css/assets/imagePreview.png" alt=""/>
+						</div>
+						
+						<div id="uploadContainer">
+							<h2>Select an image from your computer</h2>
+							<button id="uploadButton" class="darkButton">Select Image</button>
+						</div>
+					</li>
+				</ul>
+				
+				<hr />
+				<ul>
+					<li><label>Rating:</label>
+						<div id="ratingWrapper">
+							<input type="radio" name="newrate" value="1" title="Very poor" />
+							<input type="radio" name="newrate" value="2" title="Very poor" />
+							<input type="radio" name="newrate" value="3" title="Very poor" />
+							<input type="radio" name="newrate" value="4" title="Very poor" />
+							<input type="radio" name="newrate" value="5" title="Very poor" />
+						</div>
+					</li>
+					<li><label for="titleInput">Title:</label><input id="titleInput" type="text" /></li>
+					<li><label for="authorInput" >Author:</label><input id="authorInput" type="text" /></li>
+					<li><label for="typeInput">Type:</label><input id="typeInput" type="text" /></li>
+					<li><label for="asinInput">Asin:</label><input id="asinInput" type="text" /></li>
+				</ul>
+				<hr />
+				
+				<ul>
+					<li><label for="tagInput">Tags</label><br /><span class="helpText">Comma separated</span> </li>
+					<li><input id="tagInput" type="text"/><button id="addTagButton" class="darkButton">Add</button></li>
+				</ul>
+				
+				<hr/>
+				<ul>
+					<li><button id="saveImageButton" class="orangeButton">Save Image</button></li>
+				</ul>
+			</form>
+		</div>
+	</div>
+		
+	<div id="container">
+		<div id="content">
+			<div id="topBar">
+				<div id="searchBox">
+					<input type="text" id="searchInput" placeholder="Search"/>
+				</div>
+				
+				<div id="galleryInfo">
+					<span class="barInfo imageCount">38 Images</span>
+					
+				</div>
+				
+				<div id="informationBar">
+					<div id="newImageButton" >New Image</div>
+				</div>
+			</div>
+		
+			<div id="listCol">
+				<ul>
+				
+				</ul>
+			</div>
+			
+			<div id="imageCol">
+				<img src="" alt="image" class="dummyImage"/>
+			</div>
+			
+			<div id="rightCol">
+				<div id="noImages">
+					<img src="css/assets/noImage.png" alt="" />
+					<p>No Image Selected</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

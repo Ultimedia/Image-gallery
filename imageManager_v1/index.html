@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>ImageViewer</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="css/screen.css" type="text/css"  />
+		<link rel="stylesheet" href="css/jqModal.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="uploadify/uploadify.css" type="text/css" />
+		<link rel="stylesheet" href="fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+		
+		<script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
+		<script type="text/javascript" src="js/trimpath-template-1.0.38.js"></script>
+		<script type="text/javascript" src="js/jqModal.js"></script>
+		<script type="text/javascript" src="uploadify/jquery.uploadify.v2.1.4.min.js"></script>
+		<script type="text/javascript" src="uploadify/swfobject.js"></script>
+		<script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+		<script type="text/javascript" src="fancybox/jquery.easing-1.3.pack.js"></script>
+		<script type="text/javascript" src="fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+		<script type="text/javascript" src="js/jquery.alphanumeric.js"></script>
+		<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="js/jquery.quicksearch.js"></script>
+		<script type="text/javascript" src="js/jquery.tools.min.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+	</head>
+	<body>
+		<div id="container">
+			<textarea id="new_image_value_jst" style="display:none;">
+				<div id="ex3a2" class="jqmDialog">
+					<div class="jqmdTL">
+						<div class="jqmdTR">
+							<div class="jqmdTC jqDrag">
+								
+							</div>
+						</div>
+					</div>
+					
+					<div class="jqmdBL">
+						<div class="jqmdBR">
+							<div class="jqmdBC">
+								<div id="jqmdIMG">
+									<div id="jimg_holder">
+										<img id="new_img_change" src="images/icon-1.png"/>
+									</div>
+		
+									<div id="jcont_holder">
+										<label>Select an image from your computer</label><br/>
+										<input type="file" id="file_upload" name="file_upload" /><br />
+										<label id="new_image_name_holder"></label>
+									</div>
+								</div>
+					
+								<div id="jqmFRM">
+									<div id="jf_holder">
+					 					<label>Rating:</label>
+				   	 					<input type="text" class="num tb" name="new_rating" size="30" value="" placeholder="rating"><br/>
+										
+										<label>Title:</label>
+										<input type="text" class="cust tb" name="new_title" size="30" value="" placeholder="title"><br/>
+				   	  
+				   	  					<label>Author:</label>
+				   	 					<input type="text" class="cust tb" name="new_author" size="30" value="" placeholder="author"><br/>
+				   	 
+				   	 					<label>Type:</label>
+				   	 					<input type="text" class="cust tb" name="new_type" size="30" value="" placeholder="type"><br/>
+				   	 
+				   	 					<label>Asin:</label>
+				   	 					<input type="text" class="cust tb" name="new_asin" size="30" value="" placeholder="asin"><br/>
+				   	 				</div>
+								</div>
+			
+								<div id="jqmTAGS">
+									<div id="jt_holder">
+										<label>Tags</label><br/>
+										<label class="trans">Comma separated</label><br/>
+					   	 				
+					   	 				<input type="text" class="custtag tb" name="newtag" size="30" value="" placeholder="tag"><br/><br/>
+										<a id="new_add_holder" href="javascript:;">Add</a>
+					   	 			
+					   	 				<div id="new_add_tags_holder"></div>
+					   	 			</div>
+								</div>
+			
+								<div id="imageGallery.tagit">
+									<div id="jsubmit_holder">
+						 				<a href="javascript:;" id="newImageButton">submit info</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="jqmdX jqmClose"></div>
+				<div class="piclogo">New Image</div>
+			</div>
+    	</textarea>
+    
+    	<textarea id="images_value_jst" style="display:none;">
+    		<ul id="grid">
+     			{for t in imageshowArray}
+         		<li>
+         			<a href="javascript:;" data="${t.image}" class="listImage"><img src="pictures/thumbs/${t.image}"/></a><br />
+         			<span>${t.title}</span>
+         		</li>
+     			{/for}
+   			</ul>
+    	</textarea>
+		
+		<textarea id="tag_value_jst" style="display:none;">
+   			<form action="#">
+				</div>
+			
+				<div id="search_holder">
+					<input type="text" name="search" value="" size="15" id="id_search" placeholder="search tag" />
+					
+					<div id="icon"></div>
+				</div>
+		
+				<span class="loading">Loading...</span>
+			</form>
+			
+			<table id="matrix" cellpadding="0" cellspacing="0">
+				<tbody>
+					<tr id="noresults">
+						<td colspan="6">No Results</td>
+					</tr>
+					{for t in data}
+						{if t != "[object Object]" && t != ""}
+						<tr class="tagListRow">
+							<td>
+								<a href="javascript:;" class="tagListButton" data="${t}">${t}</a></br>
+							</td>
+						</tr>
+						{/if}
+					{/for}
+				</tbody>
+			</table>
+		</textarea> 		
+		
+		<textarea id="imageInformation_value_jst" style="display:none;">
+			<a class="single_image" href="pictures/${imageInfoArray.image}"><img src="pictures/thumbs/${imageInfoArray.image}" /></a><br />
+			
+			<div id="info">
+				<label id="title">${imageInfoArray.title}</label><br /><br />
+				<label>Writen by: </label>
+   		 		<label>${imageInfoArray.author}</label><br />
+				<label>Rated: </label>
+   		 		<label>${imageInfoArray.rating}</label><br />
+   				<label>Type: </label>
+   		 		<label>${imageInfoArray.type}</label><br />
+   		 		<label>Asin number:</label>
+   		 		<label>${imageInfoArray.asin}</label><br /><br />
+   		 	
+   		 		<img src="images/tags.png" /> <label>Tags: </label><br /><br />
+   				
+   				<ul>
+   					{for t in imageInfoArray.tags}
+   					<li><a href="javascript:;" class="imageInfoList" data="${t}">${t}</a></li>
+   					{/for}
+ 				</ul>
+   				
+   				<a href="javascript:;" id="ex3aTrigger" data="${imageInfoArray.image}">edit info</a>
+   			</div>
+		</textarea>
+		
+		<textarea id="imageInfo_value_jst" style="display:none;">
+			<div id="ex3a" class="jqmDialog">
+				<div class="jqmdTL">
+					<div class="jqmdTR">
+						<div class="jqmdTC jqDrag"></div>
+					</div>
+				</div>
+			
+				<div class="jqmdBL">
+					<div class="jqmdBR">
+						<div class="jqmdBC">
+							<div id="jqmdIMG">
+								<div id="jimg_holder">
+									<img id="img_change" src="pictures/thumbs/${imageInfoArray.image}"/>
+								</div>
+								
+								<div id="jcont_holder">
+									<label>Select an image from your computer</label><br/>
+									<input type="file" id="file_upload2" name="file_upload" /><br />
+									<label id="image_name_holder"></label>
+								</div>
+							</div>
+							
+							<div id="jqmFRM">
+								<div id="jf_holder">
+	 								<label>Rating:</label>
+   	 								<input type="text" class="num tb" name="rating" size="30" value="${imageInfoArray.rating}" placeholder="rating"><br/>
+   	 								
+   	 								<label>Title:</label>
+   	 								<input type="text" class="cust tb" name="title" size="30" value="${imageInfoArray.title}" placeholder="title"><br/>
+   	 
+   	 								<label>Author:</label>
+   	 								<input type="text" class="cust tb" name="author" size="30" value="${imageInfoArray.author}" placeholder="author"><br/>
+   	 								
+   	 								<label>Type:</label>
+   									<input type="text" class="cust tb" name="type" size="30" value="${imageInfoArray.type}" placeholder="type"><br/>
+   	 								
+   	 								<label>Asin:</label>
+   	 								<input type="text" class="cust tb" name="asin" size="30" value="${imageInfoArray.asin}" placeholder="asin"><br/>
+   	 							</div>
+							</div>
+							
+							<div id="jqmTAGS">
+								<div id="jt_holder">
+									<label>Tags</label><br/>
+									<label class="trans">Comma separated</label><br/>
+			   	 					
+			   	 					<input type="text" class="custtag tb" name="tag" size="30" value="" placeholder="tag"><br/><br/>
+			   	 	 				<a id="add_holder" href="javascript:;">Add</a>
+			   	 					
+			   	 					<div id="add_tags_holder"></div>
+			   	 				</div>
+							</div>
+		
+							<div id="imageGallery.tagit">
+								<div id="jsubmit_holder" class="editButton">
+				 					<a href="javascript:;">edit info</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		
+				<div class="jqmdX jqmClose"></div>
+				<div class="piclogo">Edit image</div>	
+			</div>
+		</textarea>
+		
+		<div id="stripe1"></div>
+		<div id="stripe2"></div>
+		<div id="content"></div>
+		<div id="galleryheader"></div>
+		<div id="informationheader"></div>
+		<div id="tags_holder"></div>
+		
+		<div id="imageInformationLabel">
+			<label>Information</label>
+		</div>
+		
+		<div id="searchpic_holder"></div>
+		
+		<div id="images">
+			<div id="imagesHeader">
+				<div id="imagesCount"></div>
+				<div id="bgNewImages">
+					<div id="newImages">
+						<a href="javascript:;" id="ex3aTrigger2">new image</a>
+					</div>
+				</div>
+			</div>
+			<div id="images_holder"></div>
+			<div id="tag_count"></div>
+		</div>
+		
+		<div id="mover_bg"></div>
+		<div id="mover">
+			<div id="imageInformation">
+				<div id="imageInformation_holder"></div>
+			</div>
+			<div id="imageInfo">
+				<form  class="testform"name="testform">
+					<div id="imageInfo_holder"></div>
+					<div id="newImage_holder"></div>
+				</form>
+				<div style="clear: both;"></div>
+			</div>
+		</div>
+	</body>
+</html>
